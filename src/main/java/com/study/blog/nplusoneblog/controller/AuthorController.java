@@ -23,10 +23,22 @@ public class AuthorController {
         List<Author> allAuthors = authorService.findAllAuthors();
         return ResponseEntity.ok(allAuthors.stream().map(Author::getName).collect(Collectors.toList()));
     }
-    
-    @GetMapping("/with-books")
-    public ResponseEntity<List<String>> getAllAuthorsWithBooks() {
-        List<Author> allAuthorsWithBooks = authorService.findAllAuthorsWithBooks();
+
+    @GetMapping("/with-books/join-fetch")
+    public ResponseEntity<List<String>> getAllAuthorsWithBooksJoinFetch() {
+        List<Author> allAuthorsWithBooks = authorService.findAllAuthorsWithBooksJoinFetch();
+        return ResponseEntity.ok(allAuthorsWithBooks.stream().map(Author::getName).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/with-books/entity-graph")
+    public ResponseEntity<List<String>> getAllAuthorsWithBooksEntityGraph() {
+        List<Author> allAuthorsWithBooks = authorService.findAllAuthorsWithBooksEntityGraph();
+        return ResponseEntity.ok(allAuthorsWithBooks.stream().map(Author::getName).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/with-books/batch-size")
+    public ResponseEntity<List<String>> getAllAuthorsWithBooksBatchSize() {
+        List<Author> allAuthorsWithBooks = authorService.findAllAuthorsWithBooksBatchSize();
         return ResponseEntity.ok(allAuthorsWithBooks.stream().map(Author::getName).collect(Collectors.toList()));
     }
 

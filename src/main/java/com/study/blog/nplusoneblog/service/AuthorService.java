@@ -19,7 +19,17 @@ public class AuthorService {
         return authorRepository.findAll();
     }
 
-    public List<Author> findAllAuthorsWithBooks() {
+    public List<Author> findAllAuthorsWithBooksJoinFetch() {
+        List<Author> authors = authorRepository.findAllWithBooks();
+        return authors;
+    }
+
+    public List<Author> findAllAuthorsWithBooksEntityGraph() {
+        List<Author> authors = authorRepository.findAll();
+        return authors;
+    }
+
+    public List<Author> findAllAuthorsWithBooksBatchSize() {
         List<Author> authors = authorRepository.findAll();
         authors.forEach(author -> author.getBooks().size()); // 각 저자의 책 목록을 로드하도록 강제
         return authors;

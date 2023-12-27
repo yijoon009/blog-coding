@@ -15,6 +15,8 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
+// EntityGraph 사용하기
+//@NamedEntityGraph(name = "Author.books", attributeNodes = @NamedAttributeNode("books"))
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
