@@ -14,7 +14,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        default_batch_fetch_size: 10
+#        default_batch_fetch_size: 10
         highlight_sql: true
 
   application:
